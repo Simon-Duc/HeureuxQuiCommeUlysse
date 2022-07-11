@@ -3,20 +3,46 @@ import React, {Component} from 'react';
 class SignUp extends Component {
   constructor() {
     super();
-    this.updateField = this.updateField.bind(this);
+    this.updateEmailField = this.updateEmailField.bind(this);
+    this.updatePasswordField = this.updatePasswordField.bind(this);
+    this.updatePasswordbisField = this.updatePasswordbisField.bind(this);
+    this.updateNameField = this.updateNameField.bind(this);
+    this.updateLastnameField = this.updateLastnameField.bind(this);
     this.state = {
       email: "mon@email.com",
       password: "monPassw0rd",
+      passwordbis: "monPassw0rd",
       name: "James",
       lastname: "Bond"
     };
   }
 
-  updateField(event){
+  updateEmailField(event){
     this.setState({
-      email: event.target.value,
-      password: event.target.value,
-      name: event.target.value,
+      email: event.target.value
+    });
+  }
+
+  updatePasswordField(event){
+    this.setState({
+      password: event.target.value
+    });
+  }
+
+  updatePasswordbisField(event){
+    this.setState({
+      passwordbis: event.target.value
+    });
+  }
+
+  updateNameField(event){
+    this.setState({
+      name: event.target.value
+    });
+  }
+
+  updateLastnameField(event){
+    this.setState({
       lastname: event.target.value
     });
   }
@@ -24,17 +50,17 @@ class SignUp extends Component {
   render() {
     return(
     <div className="form">
-      <h1>{JSON.stringify(this.state)}</h1>
+      <h1>{JSON.stringify(this.state, 1, 1)}</h1>
       <label htmlFor="email">Email:</label>
-      <input className="input" onChange={this.updateField} id="email" type="email" name="email" />
+      <input className="input" onChange={this.updateEmailField} id="email" type="email" name="email" />
       <label htmlFor="password">Password:</label>
-      <input className="input" onChange={this.updateField} id="password" type="password" name="password" />
+      <input className="input" onChange={this.updatePasswordField} id="password" type="password" name="password" />
       <label htmlFor="passwordbis">Password bis:</label>
-      <input className="input" onChange={this.updateField} id="passwordbis" type="password" name="passwordbis" />
+      <input className="input" onChange={this.updatePasswordbisField} id="passwordbis" type="password" name="passwordbis" />
       <label htmlFor="name">Name:</label>
-      <input className="input" onChange={this.updateField} id="name" type="test" name="name" />
+      <input className="input" onChange={this.updateNameField} id="name" type="test" name="name" />
       <label htmlFor="lastname">Lastname:</label>
-      <input className="input" onChange={this.updateField} id="lastname" type="text" name="lastname" />
+      <input className="input" onChange={this.updateLastnameField} id="lastname" type="text" name="lastname" />
       <input type="submit" value="Soumettre" />
     </div>);
   }
