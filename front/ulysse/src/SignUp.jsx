@@ -55,9 +55,9 @@ class SignUp extends Component {
 
   render() {
     return(
-    <div className="form">
+    <div>
       <h1>{JSON.stringify(this.state, 1, 1)}</h1>
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="form">
         <label htmlFor="email">Email:</label>
         <input className="input" onChange={this.updateEmailField} id="email" type="email" name="email" />
         <label htmlFor="password">Password:</label>
