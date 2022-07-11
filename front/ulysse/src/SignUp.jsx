@@ -8,6 +8,7 @@ class SignUp extends Component {
     this.updatePasswordbisField = this.updatePasswordbisField.bind(this);
     this.updateNameField = this.updateNameField.bind(this);
     this.updateLastnameField = this.updateLastnameField.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       email: "mon@email.com",
       password: "monPassw0rd",
@@ -47,21 +48,28 @@ class SignUp extends Component {
     });
   }
 
+  handleSubmit(event){
+    event.preventDefault();
+    console.log(this.state);
+  }
+
   render() {
     return(
     <div className="form">
       <h1>{JSON.stringify(this.state, 1, 1)}</h1>
-      <label htmlFor="email">Email:</label>
-      <input className="input" onChange={this.updateEmailField} id="email" type="email" name="email" />
-      <label htmlFor="password">Password:</label>
-      <input className="input" onChange={this.updatePasswordField} id="password" type="password" name="password" />
-      <label htmlFor="passwordbis">Password bis:</label>
-      <input className="input" onChange={this.updatePasswordbisField} id="passwordbis" type="password" name="passwordbis" />
-      <label htmlFor="name">Name:</label>
-      <input className="input" onChange={this.updateNameField} id="name" type="test" name="name" />
-      <label htmlFor="lastname">Lastname:</label>
-      <input className="input" onChange={this.updateLastnameField} id="lastname" type="text" name="lastname" />
-      <input type="submit" value="Soumettre" />
+      <form onSubmit={this.handleSubmit}>
+        <label htmlFor="email">Email:</label>
+        <input className="input" onChange={this.updateEmailField} id="email" type="email" name="email" />
+        <label htmlFor="password">Password:</label>
+        <input className="input" onChange={this.updatePasswordField} id="password" type="password" name="password" />
+        <label htmlFor="passwordbis">Password bis:</label>
+        <input className="input" onChange={this.updatePasswordbisField} id="passwordbis" type="password" name="passwordbis" />
+        <label htmlFor="name">Name:</label>
+        <input className="input" onChange={this.updateNameField} id="name" type="test" name="name" />
+        <label htmlFor="lastname">Lastname:</label>
+        <input className="input" onChange={this.updateLastnameField} id="lastname" type="text" name="lastname" />
+        <input type="submit" value="Soumettre" />
+      </form>
     </div>);
   }
 }
